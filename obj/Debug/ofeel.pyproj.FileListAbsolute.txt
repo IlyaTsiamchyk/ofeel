@@ -1,0 +1,13 @@
+D:\Projects\Django\ofeel\bin\Microsoft.PythonTools.WebRole.dll
+D:\Projects\Django\ofeel\obj\Debug\attach_server.py
+D:\Projects\Django\ofeel\obj\Debug\visualstudio_py_debugger.py
+D:\Projects\Django\ofeel\obj\Debug\visualstudio_py_repl.py
+D:\Projects\Django\ofeel\obj\Debug\visualstudio_py_util.py
+D:\Projects\Django\ofeel\obj\Debug\__init__.py
+D:\Projects\Django\ofeel\obj\Debug\__main__.py
+D:\Projects\Django\ofeel\bin\AzureSetup.cfg
+D:\Projects\Django\ofeel\bin\Microsoft.PythonTools.AzureSetup.exe
+D:\Projects\Django\ofeel\bin\Microsoft.PythonTools.AzureSetup.exe.config
+D:\Projects\Django\ofeel\bin\wfastcgi.py
+D:\Projects\Django\ofeel\obj\Debug\web.config
+D:\Projects\Django\ofeel\obj\Debug\web.debug.config
