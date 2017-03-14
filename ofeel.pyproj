@@ -21612,6 +21612,7 @@
     <Compile Include="ofeel\health_calc\apps.py" />
     <Compile Include="ofeel\health_calc\migrations\__init__.py" />
     <Compile Include="ofeel\health_calc\models.py" />
+    <Compile Include="ofeel\health_calc\serializers.py" />
     <Compile Include="ofeel\health_calc\tests.py" />
     <Compile Include="ofeel\health_calc\urls.py" />
     <Compile Include="ofeel\health_calc\views.py" />

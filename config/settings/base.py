@@ -46,6 +46,8 @@ DJANGO_APPS = [
 
     # Admin
     'django.contrib.admin',
+    
+    'rest_framework',
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
@@ -59,6 +61,7 @@ LOCAL_APPS = [
     # custom users app
     'ofeel.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'ofeel.health_calc.apps.HealthCalcConfig',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -116,6 +119,12 @@ DATABASES = {
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}
 
 # GENERAL CONFIGURATION
 # ------------------------------------------------------------------------------
