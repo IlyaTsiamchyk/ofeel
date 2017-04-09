@@ -1,7 +1,7 @@
 var projectRoot = './ofeel/static/'
 
 var files = {
-    entry: projectRoot + 'js/test.jsx'
+    entry: projectRoot + 'js/main.jsx'
 }
 
 module.exports = files;
