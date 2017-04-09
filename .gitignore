@@ -66,3 +66,5 @@ ofeel/static/js/dist/
 staticfiles/
 
 .cache/
+.vscode/
+.vs/
