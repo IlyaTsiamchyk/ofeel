@@ -9,12 +9,10 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'types', views.TypeViewSet)
 router.register(r'categories', views.CategoryViewSet)
-#router.register(r'dishes', views.DishViewSet)
-
-#router.register(r'users', views.UserViewSet)
-#router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^test', views.test, name='test'),
+    url(r'^rest/', views.rest, name='rest'),
 ]
