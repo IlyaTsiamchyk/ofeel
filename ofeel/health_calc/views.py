@@ -25,6 +25,18 @@ def test(request):
 @permission_classes(())
 def rest(request, format=None):
     """A view that returns the week plan in JSON."""
-    db_dishes = list(get_list_or_404(Dish, food_type__name="Raw"))
+    json_data = getTestJson()
+    data = json.loads(json_data)
+
+    db_dishes = list(get_list_or_404(Dish, food_type__name=data['Type']))
     dishes = json.dumps([dish.name for dish in db_dishes])
     return Response({'dishes': dishes})
+
+def getTestJson():
+    data = {}
+    data['Category'] = "boiled"
+    data['Type'] = "Raw"
+    data['PositivePreferencies'] = [("Dill", 2), ("Parsley", 4)]
+    data['NegativePreferencies'] = [("Parsley", 3)]
+
+    return json.dumps(data)
