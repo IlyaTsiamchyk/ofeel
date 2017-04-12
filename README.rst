@@ -18,6 +18,21 @@ Moved to settings_.
 Basic Commands
 --------------
 
+Building configuration
+^^^^^^^^^^^^^^^^^^^^^^
+install the requirements for your local development:
+
+$ pip install -r requirements/local.txt
+
+Then, create a PostgreSQL database with the following command, where [project_slug] is what value you entered for your project’s project_slug:
+
+$ createdb [project_slug]
+
+You can now run the usual Django migrate and runserver commands:
+
+$ python manage.py migrate
+$ python manage.py runserver
+
 Setting Up Your Users
 ^^^^^^^^^^^^^^^^^^^^^
 
