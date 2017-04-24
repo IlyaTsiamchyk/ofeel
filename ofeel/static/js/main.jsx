@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Footer = require('./footer');
 var Header = require('./header');
+var Preferences = require('./preferences.jsx');
 
 var Main = React.createClass ({
     render: function() {
@@ -10,6 +11,7 @@ var Main = React.createClass ({
         		<Header/>
         		<div>Hello, Tiger!</div>
         		<Footer/>
+        		<Preferences/>
 	        </div>
         );
     }
