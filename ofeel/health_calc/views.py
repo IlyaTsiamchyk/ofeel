@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, render, get_list_or_404
 
 from ofeel.health_calc.serializers import FoodTypeSerializer, FoodCategorySerializer
 from ofeel.health_calc.models import Dish, FoodType, FoodCategory
+from ofeel.health_calc.diet_creator import *
 
 class TypeViewSet(viewsets.ModelViewSet):
     queryset = FoodType.objects.all()
@@ -30,11 +31,13 @@ def rest(request, format=None):
 
     db_dishes = list(get_list_or_404(Dish, food_type__name=data['Type']))
     dishes = json.dumps([dish.name for dish in db_dishes])
+
+    create_diet(db_dishes, 0)
     return Response({'dishes': dishes})
 
 def getTestJson():
     data = {}
-    data['Category'] = "boiled"
+    data['Category'] = "Boiled"
     data['Type'] = "Raw"
     data['PositivePreferencies'] = [("Dill", 2), ("Parsley", 4)]
     data['NegativePreferencies'] = [("Parsley", 3)]

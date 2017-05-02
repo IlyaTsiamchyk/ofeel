@@ -115,7 +115,7 @@ MANAGERS = ADMINS
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres:///ofeel'),
+    'default': env.db('DATABASE_URL', default='postgres://postgres:123qweasd@127.0.0.1/ofeel'),
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

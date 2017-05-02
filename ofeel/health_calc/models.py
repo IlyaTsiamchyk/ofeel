@@ -1,4 +1,5 @@
 from django.db import models
+from bitfield import BitField
 
 # Create your models here.
 class FoodType(models.Model): #vegan
@@ -22,20 +23,49 @@ class FoodCategory(models.Model): #steamed, fried, boiled
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
-    proteinsNumber = models.IntegerField() #gramm
-    lipidsNumber = models.IntegerField() #gramm
-    energyValue = models.IntegerField() #kal
-    cost = models.DecimalField(decimal_places=4, max_digits=100)
+    proteinsNumber = models.IntegerField(default=0) #gramm
+    lipidsNumber = models.IntegerField(default=0) #gramm
+    energyValue = models.IntegerField(default=0) #kal
+    cost = models.DecimalField(decimal_places=4, max_digits=100, default=0)
 
     def __str__(self):
         return self.name
 
 
 class Dish(models.Model):
-    name = models.CharField(max_length=200)
+    CATEGORIES = (
+        ('steamed', 'Steamed'),
+        ('fried', 'Fried'),
+        ('boiled', 'Boiled'),
+        ('raw', 'Raw'),
+    )
+    
+    EATING_TIME_CHOICES = (
+        ('breakfast', 'Breakfast'),
+        ('lunch', 'Lunch'),
+        ('after_lunch', 'After lunch'),
+        ('dinner', 'Dinner')
+    )
+
+    SERVE_TYPE = (
+        ('garnier', 'Garnier'),
+        ('desert', 'Desert'),
+        ('bad', 'BAD')
+    )
+
     food_category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
-    food_type = models.ForeignKey(FoodType, on_delete=models.CASCADE)
+    food_type = models.ManyToManyField(FoodType)
     products = models.ManyToManyField(Product)
+
+    name = models.CharField(max_length=200)
+    is_main = models.BooleanField(default=False)
+    eating_time = BitField(flags=EATING_TIME_CHOICES)
+    serve_type = BitField(flags=SERVE_TYPE, default=None)
+
+    proteinsNumber = models.IntegerField(default=0) #gramm
+    lipidsNumber = models.IntegerField(default=0) #gramm
+    energyValue = models.IntegerField(default=0) #kal
+    cost = models.DecimalField(decimal_places=4, max_digits=100, default=0)
 
     def __str__(self):
         return self.name
