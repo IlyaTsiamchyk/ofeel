@@ -29,10 +29,10 @@ def rest(request, format=None):
     json_data = getTestJson()
     data = json.loads(json_data)
 
-    db_dishes = list(get_list_or_404(Dish, food_type__name=data['Type']))
+    db_dishes = list(get_list_or_404(Dish, food_type__name = data['Type']))
     dishes = json.dumps([dish.name for dish in db_dishes])
 
-    create_diet(db_dishes, 0)
+    create_diet(db_dishes, 0, {})
     return Response({'dishes': dishes})
 
 def getTestJson():
